@@ -7,7 +7,7 @@
 	<name>REST getting started</name>
 	<packaging>pom</packaging>
 	<modules>
-		<module>rest-gs-server</module>
+		<module>rest-gs-server-servlet3-withwebxml</module>
 		<module>rest-gs-client</module>
 	</modules>
 
