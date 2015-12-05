@@ -26,7 +26,6 @@ public class UserService {
 	@Path("/xml/{i}")
 	@Produces(MediaType.TEXT_XML)
 	public Response nameAsXml(@DefaultValue("0") @PathParam("i") final int i) {
-		System.out.println("name-as-xml");
 		return Response.ok(users.get(i), MediaType.TEXT_XML).build();
 	}
 
@@ -34,7 +33,6 @@ public class UserService {
 	@Path("/json/{i}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response nameAsJson(@DefaultValue("0") @PathParam("i") final int i) {
-		System.out.println("name-as-xml");
 		return Response.ok(users.get(i), MediaType.APPLICATION_JSON).build();
 	}
 }
