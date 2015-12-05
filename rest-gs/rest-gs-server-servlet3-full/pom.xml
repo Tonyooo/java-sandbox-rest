@@ -6,12 +6,16 @@
 		<artifactId>rest-gs</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>rest-gs-server-servlet3-withwebxml</artifactId>
-	<name>REST getting started - Server - Servlet 3 - with web.xml</name>
+	<artifactId>rest-gs-server-servlet3-full</artifactId>
+	<name>REST getting started - Server - Servlet 3 - full</name>
 	<packaging>war</packaging>
 
 	<!-- build deps -->
 	<dependencies>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>rest-gs-commons</artifactId>
@@ -21,27 +25,26 @@
 
 	<build>
 		<plugins>
+			<!-- Override maven war plugin configuration in order to ignore missing 
+				web.xml (optional with servlet 3) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
 			<!-- Tomcat maven plugin deployed with jersey for servlet container library -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<dependencies>
-					<!-- Jersey (JAX-RS implementation) -->
 					<dependency>
 						<groupId>org.glassfish.jersey.containers</groupId>
 						<artifactId>jersey-container-servlet</artifactId>
 						<version>${jersey.version}</version>
-					</dependency>
-					<!-- JSON provider (for JSON marshalling) -->
-					<dependency>
-						<groupId>org.glassfish.jersey.media</groupId>
-						<artifactId>jersey-media-json-jackson</artifactId>
-						<version>${jersey.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>${project.groupId}</groupId>
-						<artifactId>rest-gs-commons</artifactId>
-						<version>${project.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>

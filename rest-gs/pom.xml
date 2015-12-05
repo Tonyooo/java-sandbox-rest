@@ -9,17 +9,20 @@
 	<modules>
 		<module>rest-gs-server-servlet3-withwebxml</module>
 		<module>rest-gs-client</module>
+		<module>rest-gs-server-servlet3-full</module>
+		<module>rest-gs-commons</module>
 	</modules>
 
 	<properties>
 		<rs-api.version>2.0.1</rs-api.version>
 		<servlet-api.version>3.1.0</servlet-api.version>
+		<jersey.version>2.22.1</jersey.version>
 		<tomcat-plugin.version>2.2</tomcat-plugin.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- jax-rs JEE api -->
+			<!-- jax-rs JEE api (contained in tomcat 7 deps) -->
 			<dependency>
 				<groupId>javax.ws.rs</groupId>
 				<artifactId>javax.ws.rs-api</artifactId>
@@ -27,11 +30,20 @@
 				<scope>provided</scope>
 			</dependency>
 
+			<!-- servlet api (contained in tomcat 7 deps) -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<!-- common project data -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>rest-gs-commons</artifactId>
+				<version>${project.version}</version>
+				<scope>compile</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -42,6 +54,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
