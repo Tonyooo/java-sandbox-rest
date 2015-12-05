@@ -67,6 +67,25 @@
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>${tomcat-plugin.version}</version>
+					<dependencies>
+						<!-- Jersey (JAX-RS implementation) -->
+						<dependency>
+							<groupId>org.glassfish.jersey.containers</groupId>
+							<artifactId>jersey-container-servlet</artifactId>
+							<version>${jersey.version}</version>
+						</dependency>
+						<!-- JSON provider (for JSON marshalling) -->
+						<dependency>
+							<groupId>org.glassfish.jersey.media</groupId>
+							<artifactId>jersey-media-json-jackson</artifactId>
+							<version>${jersey.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>rest-gs-commons</artifactId>
+							<version>${project.version}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
