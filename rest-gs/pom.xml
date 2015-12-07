@@ -30,6 +30,14 @@
 				<scope>provided</scope>
 			</dependency>
 
+			<!-- Jersey RS client -->
+			<dependency>
+				<groupId>org.glassfish.jersey.core</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>${jersey.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
 			<!-- servlet api (contained in tomcat 7 deps) -->
 			<dependency>
 				<groupId>javax.servlet</groupId>

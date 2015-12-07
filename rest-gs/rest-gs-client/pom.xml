@@ -1,10 +1,33 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.tony.sandbox.rest.gs</groupId>
-    <artifactId>rest-gs</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-  </parent>
-  <artifactId>rest-gs-client</artifactId>
-  <name>REST getting started - Client</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tony.sandbox.rest.gs</groupId>
+		<artifactId>rest-gs</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>rest-gs-client</artifactId>
+	<name>REST getting started - Client</name>
+
+	<dependencies>
+		<!-- jax-rs JEE api (contained in tomcat 7 deps) -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- jersey rs client implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>
+
+		<!-- Jersey JSON media handler -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+	</dependencies>
 </project>
